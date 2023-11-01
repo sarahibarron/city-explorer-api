@@ -14,9 +14,7 @@ app.get("/weather", (request, response) => {
   const searchQuery = request.query.searchQuery;
 
   const filteredCity = data.find((city) => {
-    return (
-      city.city_name === searchQuery //&& city.lat === lat && city.lon === lon
-    );
+    return city.city_name === searchQuery;
   });
 
   const wrangledData = filteredCity.data.map((day) => {
@@ -30,3 +28,5 @@ app.get("/weather", (request, response) => {
 });
 
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
+
+// test http://localhost:8080/weather?lon=2.3200410217200766&lat=48.8588897&searchQuery=Paris
